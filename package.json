@@ -83,5 +83,12 @@
 		"redux": "^4.0.5",
 		"redux-thunk": "^2.3.0",
 		"typescript": "^3.7.5"
+	},
+	"engines": {
+		"node": ">=13",
+		"npm": ">=6"
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com"
 	}
 }
