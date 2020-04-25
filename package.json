@@ -1,10 +1,10 @@
 {
 	"name": "@chimerax/common-web",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Common web frontend library for React Material widgets, routing, cookies, theming",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/ChimeraX/common-app.git"
+		"url": "git+https://github.com/ChimeraX/common-web.git"
 	},
 	"license": "ISC",
 	"author": {
