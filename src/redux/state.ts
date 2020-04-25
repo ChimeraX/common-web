@@ -1,2 +1,1 @@
-export default interface CommonState {
-}
+export default interface CommonState {}

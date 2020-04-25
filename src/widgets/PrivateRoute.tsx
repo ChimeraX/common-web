@@ -13,7 +13,7 @@ const PrivateRoute: React.FC<PrivateRouteProperties> = (properties) => {
 	if (authenticated) {
 		return <Route {...(properties as RouteProps)} />;
 	} else {
-		return <Redirect to={redirect}/>;
+		return <Redirect to={redirect} />;
 	}
 };
 

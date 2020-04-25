@@ -117,16 +117,15 @@ interface UserWidgetClasses {
 
 export interface UserWidgetProperties {
 	user: User;
-	classes?: Partial<UserWidgetClasses>,
+	classes?: Partial<UserWidgetClasses>;
 }
-
 
 const UserWidget: React.FC<UserWidgetProperties> = (properties) => {
 	const { user } = properties;
 
 	const classes = {
 		...useStyles(),
-		...properties.classes
+		...properties.classes,
 	};
 
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -176,28 +175,29 @@ const UserWidget: React.FC<UserWidgetProperties> = (properties) => {
 						alt={userFullName}
 						unselectable={'on'}
 						draggable={false}
-						className={classes.profilePicture}/>
+						className={classes.profilePicture}
+					/>
 					<div className={clsx(classes.username, classes.text)}>{userFullName}</div>
 					<div className={clsx(classes.email, classes.text)}>{user.email}</div>
 				</div>
-				<Divider classes={{ root: classes.divider }}/>
+				<Divider classes={{ root: classes.divider }} />
 				<MenuItem key={'preferences'} className={classes.button}>
 					<ListItemIcon className={classes.icon}>
 						<Icon>tune</Icon>
 					</ListItemIcon>
-					<ListItemText primary="Preferences"/>
+					<ListItemText primary="Preferences" />
 				</MenuItem>
 				<MenuItem key={'settings'} className={classes.button}>
 					<ListItemIcon className={classes.icon}>
 						<Icon>settings</Icon>
 					</ListItemIcon>
-					<ListItemText primary="Settings"/>
+					<ListItemText primary="Settings" />
 				</MenuItem>
 				<MenuItem key={'logout'} className={clsx(classes.button, classes.logoutButton)}>
 					<ListItemIcon className={clsx(classes.logoutIcon, classes.icon)}>
 						<Icon>power_settings_new</Icon>
 					</ListItemIcon>
-					<ListItemText primary="Log out"/>
+					<ListItemText primary="Log out" />
 				</MenuItem>
 			</Menu>
 		</div>
@@ -205,4 +205,3 @@ const UserWidget: React.FC<UserWidgetProperties> = (properties) => {
 };
 
 export default UserWidget;
-
