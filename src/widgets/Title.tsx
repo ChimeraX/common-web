@@ -1,9 +1,9 @@
 import React from 'react';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { Icon } from '@material-ui/core';
-import DemeterXTheme from '../theming/DemeterXTheme';
+import ChimeraXTheme from '../theming/ChimeraXTheme';
 
-const useStyles = makeStyles((theme: DemeterXTheme) =>
+const useStyles = makeStyles((theme: ChimeraXTheme) =>
 	createStyles({
 		icon: {
 			color: theme.palette.secondary.light,
