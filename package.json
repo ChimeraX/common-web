@@ -1,7 +1,7 @@
 {
-	"name": "@chimerax/widgets",
-	"version": "1.0.0",
-	"description": "Common web frontend library for React Material widgets, routing, cookies",
+	"name": "@chimerax/common-web",
+	"version": "1.0.1",
+	"description": "Common web frontend library for React Material widgets, routing, cookies, theming",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/ChimeraX/common-app.git"
