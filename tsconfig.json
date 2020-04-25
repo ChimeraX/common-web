@@ -17,12 +17,6 @@
 		"jsx": "react",
 		"noEmit": false
 	},
-	"include": [
-		"src"
-	],
-	"exclude": [
-		"node_modules",
-		"tests",
-		"lib"
-	]
+	"include": ["src"],
+	"exclude": ["node_modules", "tests", "lib"]
 }
