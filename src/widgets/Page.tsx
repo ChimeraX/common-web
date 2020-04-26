@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme: ChimeraXTheme) => {
 });
 
 export interface PageProperties {
-	title: string;
+	title?: string;
 	classes?: {
 		root?: string;
 	};
@@ -26,7 +26,7 @@ const Page: React.FC<PageProperties> = (properties) => {
 
 	return (
 		<section className={classes.root}>
-			<h1>{title}</h1>
+			{title ? <h1>{title}</h1> : null}
 			{children}
 		</section>
 	);
