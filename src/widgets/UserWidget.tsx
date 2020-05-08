@@ -100,33 +100,20 @@ const useStyles = makeStyles((theme: ChimeraXTheme) => {
 	});
 });
 
-interface UserWidgetClasses {
-	root: string;
-	user: string;
-	text: string;
-	username: string;
-	email: string;
-	profileIcon: string;
-	profilePicture: string;
-	menu: string;
-	button: string;
-	logoutButton: string;
-	icon: string;
-	logoutIcon: string;
-}
+export type UserWidgetProperties = Partial<RealUserWidgetProperties & EmptyUserWidgetProperties>;
 
-export interface UserWidgetProperties {
+export interface RealUserWidgetProperties {
 	user: User;
-	classes?: Partial<UserWidgetClasses>;
 }
 
-const UserWidget: React.FC<UserWidgetProperties> = (properties) => {
+export interface EmptyUserWidgetProperties {
+
+}
+
+const RealUserWidget: React.FC<RealUserWidgetProperties> = (properties) => {
 	const { user } = properties;
 
-	const classes = {
-		...useStyles(),
-		...properties.classes,
-	};
+	const classes = useStyles();
 
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -180,28 +167,45 @@ const UserWidget: React.FC<UserWidgetProperties> = (properties) => {
 					<div className={clsx(classes.username, classes.text)}>{userFullName}</div>
 					<div className={clsx(classes.email, classes.text)}>{user.email}</div>
 				</div>
-				<Divider classes={{ root: classes.divider }} />
+				<Divider classes={{ root: classes.divider }}/>
 				<MenuItem key={'preferences'} className={classes.button}>
 					<ListItemIcon className={classes.icon}>
 						<Icon>tune</Icon>
 					</ListItemIcon>
-					<ListItemText primary="Preferences" />
+					<ListItemText primary="Preferences"/>
 				</MenuItem>
 				<MenuItem key={'settings'} className={classes.button}>
 					<ListItemIcon className={classes.icon}>
 						<Icon>settings</Icon>
 					</ListItemIcon>
-					<ListItemText primary="Settings" />
+					<ListItemText primary="Settings"/>
 				</MenuItem>
 				<MenuItem key={'logout'} className={clsx(classes.button, classes.logoutButton)}>
 					<ListItemIcon className={clsx(classes.logoutIcon, classes.icon)}>
 						<Icon>power_settings_new</Icon>
 					</ListItemIcon>
-					<ListItemText primary="Log out" />
+					<ListItemText primary="Log out"/>
 				</MenuItem>
 			</Menu>
 		</div>
 	);
 };
+
+const EmptyUserWidget: React.FC<EmptyUserWidgetProperties> = (properties) => {
+
+	return (
+		<div/>
+	);
+};
+
+const UserWidget: React.FC<UserWidgetProperties> = (properties) => {
+	const { user } = properties;
+	if (user === undefined) {
+		return <EmptyUserWidget/>;
+	} else {
+		return <RealUserWidget user={user!!}/>;
+	}
+};
+
 
 export default UserWidget;
