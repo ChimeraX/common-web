@@ -18,7 +18,7 @@
 	"scripts": {
 		"build": "react-scripts build",
 		"format": "sort-package-json && prettier --write \"(src|tests)/**/*.ts\" \"(src|tests)/**/*.tsx\" \"**/*.json\"",
-		"library": "del lib && tsc",
+		"library": "tsc",
 		"prepublish": "npm run library",
 		"start": "react-scripts start",
 		"test": "jest"
