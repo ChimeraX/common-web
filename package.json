@@ -1,6 +1,6 @@
 {
 	"name": "@chimerax/common-web",
-	"version": "1.3.0",
+	"version": "1.3.2",
 	"description": "Common web frontend library for React Material widgets, routing, cookies, theming",
 	"repository": {
 		"type": "git",
@@ -17,8 +17,9 @@
 	],
 	"scripts": {
 		"build": "react-scripts build",
-		"format": "sort-package-json && prettier --write \"(src|tests)/**/*.ts\" \"(src|tests)/**/*.tsx\"",
-		"library": "tsc",
+		"format": "sort-package-json && prettier --write \"(src|tests)/**/*.ts\" \"(src|tests)/**/*.tsx\" \"**/*.json\"",
+		"library": "del lib && tsc",
+		"prepublish": "npm run library",
 		"start": "react-scripts start",
 		"test": "jest"
 	},

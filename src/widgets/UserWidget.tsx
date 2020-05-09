@@ -80,12 +80,8 @@ const useStyles = makeStyles((theme: ChimeraXTheme) => {
 				background: 'transparent',
 			},
 		},
-		logoutButton: {},
 		icon: {
 			minWidth: '40px',
-		},
-		logoutIcon: {
-			color: 'red',
 		},
 		divider: {
 			backgroundColor: 'white',
@@ -106,9 +102,7 @@ export interface RealUserWidgetProperties {
 	user: User;
 }
 
-export interface EmptyUserWidgetProperties {
-
-}
+export interface EmptyUserWidgetProperties {}
 
 const RealUserWidget: React.FC<RealUserWidgetProperties> = (properties) => {
 	const { user } = properties;
@@ -167,24 +161,24 @@ const RealUserWidget: React.FC<RealUserWidgetProperties> = (properties) => {
 					<div className={clsx(classes.username, classes.text)}>{userFullName}</div>
 					<div className={clsx(classes.email, classes.text)}>{user.email}</div>
 				</div>
-				<Divider classes={{ root: classes.divider }}/>
+				<Divider classes={{ root: classes.divider }} />
 				<MenuItem key={'preferences'} className={classes.button}>
 					<ListItemIcon className={classes.icon}>
 						<Icon>tune</Icon>
 					</ListItemIcon>
-					<ListItemText primary="Preferences"/>
+					<ListItemText primary="Preferences" />
 				</MenuItem>
 				<MenuItem key={'settings'} className={classes.button}>
 					<ListItemIcon className={classes.icon}>
 						<Icon>settings</Icon>
 					</ListItemIcon>
-					<ListItemText primary="Settings"/>
+					<ListItemText primary="Settings" />
 				</MenuItem>
-				<MenuItem key={'logout'} className={clsx(classes.button, classes.logoutButton)}>
-					<ListItemIcon className={clsx(classes.logoutIcon, classes.icon)}>
+				<MenuItem key={'logout'} className={classes.button}>
+					<ListItemIcon className={classes.icon}>
 						<Icon>power_settings_new</Icon>
 					</ListItemIcon>
-					<ListItemText primary="Log out"/>
+					<ListItemText primary="Log out" />
 				</MenuItem>
 			</Menu>
 		</div>
@@ -192,20 +186,16 @@ const RealUserWidget: React.FC<RealUserWidgetProperties> = (properties) => {
 };
 
 const EmptyUserWidget: React.FC<EmptyUserWidgetProperties> = (properties) => {
-
-	return (
-		<div/>
-	);
+	return <div />;
 };
 
 const UserWidget: React.FC<UserWidgetProperties> = (properties) => {
 	const { user } = properties;
 	if (user === undefined) {
-		return <EmptyUserWidget/>;
+		return <EmptyUserWidget />;
 	} else {
-		return <RealUserWidget user={user!!}/>;
+		return <RealUserWidget user={user!!} />;
 	}
 };
-
 
 export default UserWidget;
