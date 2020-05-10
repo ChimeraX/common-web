@@ -19,17 +19,23 @@ interface ChimeraXProperties {
 	clientId: string;
 	redirect: string;
 	scopes: string[];
+	oauthURL?: string;
 }
 
 const ChimeraX: React.FC<ChimeraXProperties> = (properties) => {
-	const { clientId, redirect, scopes } = properties;
+	const {
+		clientId,
+		redirect,
+		scopes,
+		oauthURL = endpoints.oauthURL
+	} = properties;
 
 	const classes = useStyles();
 
 	const scope = scopes.join(',');
 
 	const handleClick = () => {
-		window.location.href = `${endpoints.oauthClientURL}/authorization?` +
+		window.location.href = `${oauthURL}/authorization?` +
 			`redirect=${redirect}` +
 			`&client=${clientId}` +
 			`&scope=${scope}`;
