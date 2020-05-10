@@ -29,12 +29,18 @@ const ChimeraX: React.FC<ChimeraXProperties> = (properties) => {
 	const scope = scopes.join(',');
 
 	const handleClick = () => {
-		window.location.href = `${endpoints.oauthURL}?redirect=${redirect}&client=${clientId}&scope=${scope}`;
+		window.location.href = `${endpoints.oauthClientURL}/authorization?` +
+			`redirect=${redirect}` +
+			`&client=${clientId}` +
+			`&scope=${scope}`;
 	};
 
 	return (
 		<ThemeProvider theme={theme}>
-			<Button onClick={handleClick} color="secondary" variant={'outlined'} className={classes.root}>
+			<Button onClick={handleClick}
+			        color="secondary"
+			        variant={'outlined'}
+			        className={classes.root}>
 				Connect with Chimera-X
 			</Button>
 		</ThemeProvider>
